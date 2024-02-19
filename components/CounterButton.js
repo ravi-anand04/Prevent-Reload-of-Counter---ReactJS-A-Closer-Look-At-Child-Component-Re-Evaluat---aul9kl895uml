@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useCallback } from "react";
 
-function CounterButton() {
-     /*DO NOT EDIT THIS LINE */ console.log("CounterButton rendered!"); //DO NOT edit this line 
+function CounterButton({ increment }) {
+  /*DO NOT EDIT THIS LINE */ console.log("CounterButton rendered!"); //DO NOT edit this line
 
+  const handleClick = useCallback(() => {
+    increment();
+  }, [increment]);
+
+  return <button onClick={handleClick}>Increment</button>;
 }
 
-export default /*___________*/
+export default React.memo(CounterButton);
